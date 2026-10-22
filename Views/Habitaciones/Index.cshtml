@@ -1,0 +1,27 @@
+@model IEnumerable<Hotel.Web.Models.Habitacion>
+@{
+    ViewData["Title"] = "Habitaciones";
+}
+
+<div class="page-heading">
+    <div><p class="eyebrow text-success">INVENTARIO</p><h1>Habitaciones activas</h1><p class="muted mb-0">Gestiona la disponibilidad física del hotel.</p></div>
+    <a class="btn btn-primary" asp-action="Create">Nueva habitación</a>
+</div>
+
+<form method="get" class="card-clean p-3 mb-4 d-flex gap-2 align-items-end flex-wrap">
+    <div><label class="form-label">Tipo de habitación</label><select name="tipoId" class="form-select" asp-items="ViewBag.Tipos"><option value="">Todos los tipos</option></select></div>
+    <button class="btn btn-outline-primary" type="submit">Filtrar</button>
+    <a class="btn btn-link text-secondary" asp-action="Index">Limpiar</a>
+</form>
+
+<div class="card-clean table-responsive">
+<table class="table">
+    <thead><tr><th>NÚMERO</th><th>PISO</th><th>TIPO</th><th>CAPACIDAD</th><th>PRECIO/NOCHE</th><th></th></tr></thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr><td class="fw-semibold">@item.Numero</td><td>@item.Piso</td><td>@item.IdTipoHabitacionNavigation.Nombre</td><td>@item.IdTipoHabitacionNavigation.Capacidad personas</td><td>S/ @item.IdTipoHabitacionNavigation.PrecioNoche.ToString("N2")</td><td class="text-end"><a class="btn btn-sm btn-light" asp-action="Details" asp-route-id="@item.IdHabitacion">Ver</a> <a class="btn btn-sm btn-outline-primary" asp-action="Edit" asp-route-id="@item.IdHabitacion">Editar</a></td></tr>
+    }
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,4 @@
+@model Hotel.Web.Models.Habitacion
+@{ ViewData["Title"] = "Dar de baja"; }
+<div class="page-heading"><div><p class="eyebrow text-danger">ACCIÓN LÓGICA</p><h1>Dar de baja habitación</h1></div></div>
+<div class="card-clean p-4"><p>La habitación <strong>@Model.Numero</strong> dejará de aparecer en los listados y no podrá elegirse para nuevas reservas. No se eliminará su historial.</p><form asp-action="Delete"><input type="hidden" asp-for="IdHabitacion" /><button class="btn btn-danger">Confirmar baja</button> <a class="btn btn-light" asp-action="Details" asp-route-id="@Model.IdHabitacion">Cancelar</a></form></div>

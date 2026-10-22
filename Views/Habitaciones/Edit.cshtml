@@ -1,0 +1,5 @@
+@model Hotel.Web.Models.Habitacion
+@{ ViewData["Title"] = "Editar habitación"; }
+<div class="page-heading"><div><p class="eyebrow text-success">INVENTARIO</p><h1>Editar habitación</h1></div></div>
+<div class="card-clean p-4"><form asp-action="Edit"><input type="hidden" asp-for="IdHabitacion" /><partial name="_Form" model="Model" /><div class="mt-4 d-flex gap-2"><button class="btn btn-primary">Guardar cambios</button><a class="btn btn-light" asp-action="Index">Cancelar</a></div></form></div>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

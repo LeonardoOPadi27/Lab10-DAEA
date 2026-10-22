@@ -1,0 +1,31 @@
+:root { --ink:#17211f; --pine:#245548; --mist:#f4f5f1; --line:#dce3dd; --sand:#e9dfc9; }
+html { font-size: 16px; position: relative; min-height: 100%; }
+body { background:var(--mist); color:var(--ink); font-family: Inter, system-ui, sans-serif; margin-bottom:72px; }
+.site-header { background:var(--ink); }
+.navbar-brand { letter-spacing:.12em; font-size:.95rem; }
+.navbar-brand span { color:#b7d6c5; font-weight:400; letter-spacing:0; }
+.nav-link { color:#d9e5de !important; font-size:.92rem; }
+.nav-link:hover { color:white !important; }
+.hero-card { background:linear-gradient(120deg,#183e35,#286451); color:white; border-radius:22px; padding:clamp(2rem,6vw,5rem); min-height:360px; display:flex; flex-direction:column; justify-content:center; }
+.hero-card h1 { font-size:clamp(2.2rem,6vw,4.6rem); letter-spacing:-.06em; max-width:700px; }
+.hero-card .lead { max-width:570px; color:#dbe8e0; }
+.eyebrow { color:#b7d6c5; font-size:.75rem; font-weight:700; letter-spacing:.16em; }
+.page-heading { display:flex; justify-content:space-between; align-items:end; gap:1rem; margin-bottom:1.5rem; }
+.page-heading h1 { font-size:2rem; letter-spacing:-.045em; margin:0; }
+.muted { color:#6d7772; }
+.card-clean { border:1px solid var(--line); border-radius:16px; background:#fff; box-shadow:0 8px 24px rgba(17,33,27,.04); }
+.table { margin:0; }
+.table > :not(caption) > * > * { padding:1rem; border-color:var(--line); vertical-align:middle; }
+.table thead th { background:#f8faf8; color:#61706a; font-size:.72rem; letter-spacing:.08em; }
+.badge-soft { background:#e8f2ec; color:#276146; font-weight:600; }
+.badge-pending { background:#fff3d8; color:#8a5b00; }
+.badge-cancelled { background:#fbe9e9; color:#a23b3b; }
+.btn-primary { background:var(--pine); border-color:var(--pine); }
+.btn-primary:hover { background:#183f35; border-color:#183f35; }
+.btn-outline-primary { color:var(--pine); border-color:var(--pine); }
+.btn-outline-primary:hover { background:var(--pine); border-color:var(--pine); }
+.form-control,.form-select { border-color:var(--line); padding:.7rem .8rem; }
+.form-control:focus,.form-select:focus { border-color:#6ba08e; box-shadow:0 0 0 .2rem rgba(75,133,109,.14); }
+.form-label { font-size:.84rem; font-weight:650; }
+.footer { position:absolute; bottom:0; width:100%; padding:1.4rem 0; font-size:.82rem; }
+@media (max-width:575px) { .page-heading { align-items:start; flex-direction:column; } .table-responsive { border-radius:16px; } }

@@ -1,0 +1,23 @@
+@model IEnumerable<Hotel.Web.ViewModels.DisponibilidadViewModel>
+@{
+    ViewData["Title"] = "Disponibilidad";
+    DateOnly? ingreso = ViewBag.Ingreso;
+    DateOnly? salida = ViewBag.Salida;
+}
+<div class="page-heading"><div><p class="eyebrow text-success">PLANEA TU ESTANCIA</p><h1>Disponibilidad</h1><p class="muted mb-0">Encuentra habitaciones libres para las fechas que necesitas.</p></div></div>
+<form method="get" class="card-clean p-3 mb-4 row g-3 align-items-end">
+    <div class="col-md-4"><label class="form-label">Ingreso</label><input type="date" name="ingreso" value="@(ingreso?.ToString("yyyy-MM-dd"))" class="form-control" required /></div>
+    <div class="col-md-4"><label class="form-label">Salida</label><input type="date" name="salida" value="@(salida?.ToString("yyyy-MM-dd"))" class="form-control" required /></div>
+    <div class="col-md-4"><button class="btn btn-primary w-100">Consultar habitaciones</button></div>
+</form>
+@if (ViewBag.Error is string error) { <div class="alert alert-danger border-0">@error</div> }
+@if (ingreso.HasValue && salida.HasValue && ViewBag.Error is null)
+{
+    <div class="d-flex justify-content-between align-items-center mb-3"><span class="muted">@Model.Count() habitación(es) disponible(s)</span><span class="badge badge-soft rounded-pill px-3">@(salida.Value.DayNumber - ingreso.Value.DayNumber) noche(s)</span></div>
+    <div class="row g-3">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-6 col-lg-4"><article class="card-clean p-4 h-100 d-flex flex-column"><div class="d-flex justify-content-between"><p class="eyebrow text-success mb-2">HAB. @item.Numero</p><span class="muted">Piso @item.Piso</span></div><h4>@item.Tipo</h4><p class="muted">@item.Capacidad huéspedes · S/ @item.PrecioNoche.ToString("N2") por noche</p><div class="mt-auto pt-3 d-flex justify-content-between align-items-center"><strong>S/ @item.TotalEstimado.ToString("N2")</strong><a class="btn btn-primary btn-sm" asp-action="Create" asp-route-idHabitacion="@item.IdHabitacion" asp-route-ingreso="@ingreso.Value.ToString("yyyy-MM-dd")" asp-route-salida="@salida.Value.ToString("yyyy-MM-dd")">Reservar</a></div></article></div>
+    }
+    </div>
+}

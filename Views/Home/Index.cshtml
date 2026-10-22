@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<section class="hero-card">
+    <p class="eyebrow">ESTANCIA BIEN PENSADA</p>
+    <h1>Un hotel sencillo de reservar.</h1>
+    <p class="lead mb-4">Consulta habitaciones disponibles, registra nuevas reservas y gestiona cada estancia desde un solo lugar.</p>
+    <div class="d-flex gap-2 flex-wrap">
+        <a class="btn btn-light px-4" asp-controller="Reservas" asp-action="Disponibles">Buscar disponibilidad</a>
+        <a class="btn btn-outline-light px-4" asp-controller="Habitaciones" asp-action="Index">Ver habitaciones</a>
+    </div>
+</section>
+</div>
